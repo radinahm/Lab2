@@ -16,7 +16,10 @@ class Party(var list: List[Character]) {
     defeatedexp
     var membercount:Int = 0
     for (r <- list){
-      membercount += 1
+      if (r.alive == true){
+        membercount += 1
+      }
+      membercount
     }
     membercount
     var eachxpgain: Int = defeatedexp/membercount

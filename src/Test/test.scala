@@ -59,7 +59,7 @@ class test extends FunSuite {
     assert(newguy.currentHealth == 19)
   }
 test(testName = "Partytest"){
-  val newa: Character = new Character(10, 7,
+  val newa: Character = new Character(11, 7,
     10, 7,
     9, 7)
   val newb: Character = new Character(10, 4,
@@ -68,13 +68,13 @@ test(testName = "Partytest"){
   val newc: Character = new Character(10, 7,
     10, 7,
     9, 7)
-  val newd: Character = new Character(11, 7,
+  val newd: Character = new Character(10, 7,
     10, 7,
     9, 7)
   val newp: Party = new Party(List(newa, newc))
   val newp1: Party = new Party(List(newb, newd))
   newp.partySetup(newp1)
-  assert(newp.xpgain==15)
+  assert(newp.xpgain==10)
 
 }
 

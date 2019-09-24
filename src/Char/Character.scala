@@ -39,18 +39,19 @@ class Character(var attackPower:Int = 10, var Defense:Int = 7,
     var newexp: Int = 0
     var newexp2: Int = 0
     if (characterpower > characterpower2){
+      character.alive = false
       experience += 10
       newexp = 10
       currentHealth += 5
     }
     else {
+      alive = false
       character.experience +=10
       newexp2 = 10
       character.currentHealth += 5
     }
     level += newexp/5
     character.level += newexp2/5
-    level
     character.level
   }
 
