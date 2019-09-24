@@ -45,6 +45,7 @@ class test extends FunSuite {
     val newguy1: Character = new Character(10, 4,
       5, 7,
       9, 7)
+    assert(newguy.currentHealth == 9)
     newguy.expgain(newguy1) // newguy wins and gains 10 exp
     assert(newguy1.experience==0)
     assert(newguy.experience==10)
@@ -61,20 +62,20 @@ class test extends FunSuite {
 test(testName = "Partytest"){
   val newa: Character = new Character(13, 7,
     10, 7,
-    9, 7)
+    9, 7) // newa defeats new b, d, and f
 
   val newb: Character = new Character(10, 4,
     5, 7,
     9, 7)
   val newc: Character = new Character(10, 7,
     10, 7,
-    9, 7)
+    9, 7) // newc defeats new b, new f
   val newd: Character = new Character(12, 7,
     10, 7,
     9, 7)
   val newe: Character = new Character(12, 7,
     10, 7,
-    9, 7)
+    9, 7) // new e defeats new b, new f
   val newf: Character = new Character(8, 7,
     10, 7,
     9, 7)
@@ -83,6 +84,8 @@ test(testName = "Partytest"){
   newp.partySetup(newp1)
   assert(newp.xpgain==20)
   assert(newa.experience == 50)
+  assert(newc.experience == 20)
+  assert(newd.experience == 20)
 }
 
 
