@@ -9,11 +9,11 @@ class Party(var list: List[Character]) {
 
       for (i <- list){
         i.expgain(value)
-        defeatedexp += value.experience
       }
-      defeatedexp
     }
-    defeatedexp
+    for (i <- defeatedParty.list){
+      defeatedexp += i.experience
+    }
     var membercount:Int = 0
     for (r <- list){
       if (r.alive == true){
@@ -25,6 +25,12 @@ class Party(var list: List[Character]) {
     var eachxpgain: Int = defeatedexp/membercount
     xpgain = eachxpgain
     eachxpgain
+    for (i <- list){
+      if (i.alive == true){
+        i.experience += xpgain
+      }
+    }
+    xpgain
     //done
 
   }
