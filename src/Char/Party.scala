@@ -22,6 +22,7 @@ class Party(var list: List[Character]) {
     var eachxpgain: Int = defeatedexp/membercount
     xpgain = eachxpgain
     eachxpgain
+    //done
 
   }
 
