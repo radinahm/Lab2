@@ -2,6 +2,7 @@ package Test
 
 import Char.Character
 import org.scalatest.FunSuite
+import Char.Party
 
 class test extends FunSuite {
 
@@ -12,14 +13,72 @@ class test extends FunSuite {
     val dmd: Int = 4
     val tr: Int = 9
     val nt: Int = 3
-    newchar.takeDamage(damage = tr)
-    assert(newchar.takeDamage(damage = dmd) == 5, dmd)
-    assert((newchar.alive) == false)
-    newchar.takeDamage(damage = nt)
-    assert((newchar.alive) == false)
+    val newchar1: Character = new Character(10, 7,
+      5, 7,
+      9, 7)
+    val newchar2: Character = new Character(10, 7,
+      5, 7,
+      9, 7)
+    newchar.takeDamage(tr)
+    newchar1.takeDamage(nt)
 
-
-
+    assert((newchar.alive) == false, tr)
+    assert((newchar1.alive) == true, nt)
+    assert(newchar2.takeDamage(dmd)==5)
   }
+
+  test(testName = "tests attack"){
+    val newcplayer: Character = new Character(10, 7,
+      10, 7,
+      9, 7)
+    val newcplayer2: Character = new Character(10, 4,
+      5, 7,
+      9, 7)
+    assert((newcplayer.physicalAttack(newcplayer2)) == 3)
+    assert((newcplayer.magicalAttack(newcplayer2)) == 6)
+  }
+
+  test(testName = "experiencegainvariable"){
+    val newguy: Character = new Character(10, 7,
+      10, 7,
+      9, 7)
+    val newguy1: Character = new Character(10, 4,
+      5, 7,
+      9, 7)
+    newguy.expgain(newguy1) // newguy wins and gains 10 exp
+    assert(newguy1.experience==0)
+    assert(newguy.experience==10)
+    assert(newguy.currentHealth == 14)
+    assert(newguy.level==2)
+    val newguy2: Character = new Character(9, 4,
+      5, 7,
+      9, 7)
+    newguy2.expgain(newguy)
+    assert(newguy.experience==20)
+    assert(newguy.level ==4)
+    assert(newguy.currentHealth == 19)
+  }
+test(testName = "Partytest"){
+  val newa: Character = new Character(10, 7,
+    10, 7,
+    9, 7)
+  val newb: Character = new Character(10, 4,
+    5, 7,
+    9, 7)
+  val newc: Character = new Character(10, 7,
+    10, 7,
+    9, 7)
+  val newd: Character = new Character(11, 7,
+    10, 7,
+    9, 7)
+  val newp: Party = new Party(List(newa, newc))
+  val newp1: Party = new Party(List(newb, newd))
+  newp.partySetup(newp1)
+  assert(newp.xpgain==15)
+
+}
+
+
+
 
 }
