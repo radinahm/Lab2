@@ -1,13 +1,18 @@
 package Char
 
-class Character(var attackPower:Int = 10, var Defense:Int = 7,
+abstract class Character(var attackPower:Int = 10, var Defense:Int = 7,
                 var magicAttack:Int= 5, var magicDefense:Int = 7,
-                val maxHealth:Int= 9, var maxMagic:Int = 7  ) {
+                var maxHealth:Int= 9, var maxMagic:Int = 7  ) {
   var currentHealth:Int = maxHealth
   var currentMagic:Int = maxMagic
   var alive:Boolean = true
   var experience:Int = 0
   var level:Int = 0
+  var firepower:Int = 0
+  var spell:Int = 0
+  var newlst:List[String] = List()
+
+
   def takeDamage(damage:Int) : Int = {
     val newHealth: Int = currentHealth - damage
 
@@ -54,6 +59,9 @@ class Character(var attackPower:Int = 10, var Defense:Int = 7,
     character.level += newexp2/5
     character.level
   }
+  def battleOptions(): List[String]
+  def levelUp(): Unit
+  def takeAction(string: String, character: Character): Unit
 
 
 }
