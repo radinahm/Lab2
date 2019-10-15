@@ -58,6 +58,7 @@ class from_json {
       title = "2D Graphics"
       scene = new Scene(model.mapwidth2, model.mapheight2) {
         content = List(sceneGraphics)
+        //
       }
     }
 
