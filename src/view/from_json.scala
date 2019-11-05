@@ -62,6 +62,7 @@ class from_json {
       }
     }
 
+
   }
 
   def drawTile(): Unit = {
@@ -108,9 +109,12 @@ class from_json {
       radius = 5 * pllevel
       fill = Color.Blue
 
+
     }
     View.sceneGraphics.children.add(player)
     View.stage. addEventHandler(KeyEvent.KEY_PRESSED, new KeyEventHandler(player))
+
+
     for (i <- otherpartyarray) {
       var locationother = i("location")
       var xx1 = locationother("x").toString().toDouble

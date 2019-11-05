@@ -28,6 +28,8 @@ object View extends JFXApp {
   }
   AnimationTimer(update).start()
 
+  def iscollison(): Unit={
 
+  }
 }
 
